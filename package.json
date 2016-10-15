@@ -1,0 +1,35 @@
+{
+  "name": "base-node",
+  "version": "0.0.1",
+  "description": "base node project",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preichelt/base-node.git"
+  },
+  "keywords": [
+    "base"
+  ],
+  "author": "Phillip Reichelt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/preichelt/base-node/issues"
+  },
+  "homepage": "https://github.com/preichelt/base-node#readme",
+  "devDependencies": {
+    "babel-preset-eslatest-node6": "^1.0.1",
+    "eslint": "^3.8.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1"
+  },
+  "babel": {
+    "presets": [
+      "eslatest-node6"
+    ]
+  }
+}
