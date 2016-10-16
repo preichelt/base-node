@@ -2,11 +2,23 @@ import gulp from 'gulp'
 import babel from 'gulp-babel'
 import { exec } from 'child_process'
 import eslint from 'gulp-eslint'
+import ava from 'gulp-ava'
 
 const paths = {
   allSrcJs: 'src/**/*.js',
-  gulpFile: 'gulpfile.babel.js'
+  gulpFile: 'gulpfile.babel.js',
+  allLibTests: 'lib/test/**/*.test.js'
 }
+
+gulp.task('lint', () => {
+  gulp.src([
+    paths.allSrcJs,
+    paths.gulpFile
+  ])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+})
 
 gulp.task('build', ['lint'], () => {
   gulp.src(paths.allSrcJs)
@@ -14,7 +26,12 @@ gulp.task('build', ['lint'], () => {
     .pipe(gulp.dest('lib'))
 })
 
-gulp.task('main', ['build'], (callback) => {
+gulp.task('test', ['build'], () =>
+  gulp.src(paths.allLibTests)
+    .pipe(ava())
+)
+
+gulp.task('main', ['test'], (callback) => {
   exec('node lib/', (error, stdout) => {
     console.log(stdout)
     return callback(error)
@@ -26,13 +43,3 @@ gulp.task('watch', () => {
 })
 
 gulp.task('default', ['watch', 'main'])
-
-gulp.task('lint', () => {
-  gulp.src([
-    paths.allSrcJs,
-    paths.gulpFile,
-  ])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-})
