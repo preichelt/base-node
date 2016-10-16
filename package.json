@@ -22,16 +22,25 @@
   "homepage": "https://github.com/preichelt/base-node#readme",
   "devDependencies": {
     "ava": "^0.16.0",
+    "babel-eslint": "^7.0.0",
     "babel-preset-eslatest-node6": "^1.0.1",
+    "babel-preset-flow": "^1.0.0",
     "eslint": "^3.8.0",
+    "eslint-plugin-flowtype": "^2.20.0",
+    "eslint-plugin-import": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-ava": "^0.14.1",
     "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1"
+    "gulp-eslint": "^3.0.1",
+    "gulp-flowtype": "^1.0.0"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1"
   },
   "babel": {
     "presets": [
-      "eslatest-node6"
+      "eslatest-node6",
+      "flow"
     ]
   }
 }

@@ -4,11 +4,15 @@ module.exports = {
     "es6": true,
     "node": true
   },
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "import",
+    "flowtype"
+  ],
   "rules": {
     "indent": [
       "error",

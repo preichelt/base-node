@@ -3,6 +3,7 @@ import babel from 'gulp-babel'
 import { exec } from 'child_process'
 import eslint from 'gulp-eslint'
 import ava from 'gulp-ava'
+import flow from 'gulp-flowtype'
 
 const paths = {
   allSrcJs: 'src/**/*.js',
@@ -15,6 +16,7 @@ gulp.task('lint', () => {
     paths.allSrcJs,
     paths.gulpFile
   ])
+    .pipe(flow({ abort: true }))
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
