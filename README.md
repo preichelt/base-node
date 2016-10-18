@@ -6,7 +6,7 @@
 [immutable-js](https://facebook.github.io/immutable-js/)
 
 ## :icecream: flavors
-- [bare bones](https://github.com/preichelt/base-node)
+- [base](https://github.com/preichelt/base-node)
   * [+ express + pm2](https://github.com/preichelt/base-node/tree/express)
     * \+ vue + webpack (coming)
   * \+ serverless (coming)
