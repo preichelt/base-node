@@ -5,6 +5,8 @@
 [ava](https://github.com/avajs/ava) + [flow](https://flowtype.org/) +
 [immutable-js](https://facebook.github.io/immutable-js/)
 
-## flavors
+## :icecream: flavors
 - [bare bones](https://github.com/preichelt/base-node)
-- [+ express and pm2](https://github.com/preichelt/base-node/tree/express)
+  * [+ express + pm2](https://github.com/preichelt/base-node/tree/express)
+    * \+ vue + webpack (coming)
+  * \+ serverless (coming)
