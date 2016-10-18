@@ -2,10 +2,16 @@
   "name": "base-node",
   "version": "0.0.1",
   "description": "base node project",
-  "main": "index.js",
+  "main": "lib/server/index.js",
   "scripts": {
     "start": "gulp",
-    "test": "gulp test"
+    "stop": "$(npm bin)/pm2 stop base-node && $(npm bin)/pm2 delete base-node",
+    "test": "gulp test",
+    "pm2:status": "$(npm bin)/pm2 status",
+    "pm2:restart": "$(npm bin)/pm2 restart base-node",
+    "pm2:logs": "$(npm bin)/pm2 logs",
+    "pm2:flush": "$(npm bin)/pm2 flush",
+    "pm2:update": "$(npm bin)/pm2 update"
   },
   "repository": {
     "type": "git",
@@ -36,7 +42,12 @@
     "sinon": "^1.17.6"
   },
   "dependencies": {
-    "immutable": "^3.8.1"
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "immutable": "^3.8.1",
+    "pm2": "^2.0.18"
   },
   "babel": {
     "presets": [
