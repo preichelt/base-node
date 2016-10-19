@@ -36,7 +36,7 @@ gulp.task('test', ['build'], () => {
 })
 
 gulp.task('webpack', (callback) => {
-  const cmd = 'webpack --progress --hide-modules'
+  const cmd = 'webpack --progress --color --hide-modules'
 
   exec(cmd, (error, stdout, stderr) => {
     console.log(stdout)
