@@ -9,6 +9,6 @@
 ## :icecream: flavors
 - [base](https://github.com/preichelt/base-node)
   * [+ express + pm2](https://github.com/preichelt/base-node/tree/express)
-    * [+ vue + webpack](https://github.com/preichelt/base-node/tree/vue-webpack) (wip)
+    * [+ vue + webpack + sass + pug](https://github.com/preichelt/base-node/tree/vue-webpack) (wip)
   * \+ [serverless](https://serverless.com/) (coming)
   * \+ [electron](http://electron.atom.io/) (coming)
