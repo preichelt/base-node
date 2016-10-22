@@ -8,7 +8,7 @@
 
 ## :icecream: flavors
 - [base](https://github.com/preichelt/base-node)
-  * [+ express + pm2](https://github.com/preichelt/base-node/tree/express)
-    * [+ vue + webpack + sass + pug](https://github.com/preichelt/base-node/tree/vue-webpack) (wip)
+  * [+ server](https://github.com/preichelt/base-node/tree/express)
+    * [+ client](https://github.com/preichelt/base-node/tree/vue-webpack)
   * \+ [serverless](https://serverless.com/) (coming)
   * \+ [electron](http://electron.atom.io/) (coming)
