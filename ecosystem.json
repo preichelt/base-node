@@ -3,8 +3,7 @@
     {
       "name": "base-node",
       "script": "lib/server/index.js",
-      "watch": "true",
-      "ignore_watch": [".git", "node_modules", "src", "lib/test"],
+      "watch": "false",
       "env": {},
       "env_development": {
         "NODE_ENV": "development"

@@ -9,7 +9,8 @@ const paths = {
   allSrcJs: 'src/**/*.js',
   gulpFile: 'gulpfile.babel.js',
   webpackFile: 'webpack.config.babel.js',
-  allLibTests: 'lib/test/**/*.test.js'
+  allLibTests: 'lib/test/**/*.test.js',
+  allVueComponents: 'src/**/*.vue'
 }
 
 gulp.task('lint', () => {
@@ -35,7 +36,7 @@ gulp.task('test', ['build'], () => {
     .pipe(ava())
 })
 
-gulp.task('webpack', (callback) => {
+gulp.task('webpack', ['test'], (callback) => {
   const cmd = 'webpack --progress --color --hide-modules'
 
   exec(cmd, (error, stdout, stderr) => {
@@ -45,7 +46,7 @@ gulp.task('webpack', (callback) => {
   })
 })
 
-gulp.task('main', ['test', 'webpack'], (callback) => {
+gulp.task('main', ['webpack'], (callback) => {
   const cmd = '$(npm bin)/pm2 start ecosystem.json --env development'
 
   exec(cmd, (error, stdout) => {
@@ -55,7 +56,7 @@ gulp.task('main', ['test', 'webpack'], (callback) => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(paths.allSrcJs, ['main'])
+  gulp.watch([paths.allSrcJs, paths.allVueComponents], ['main'])
 })
 
 gulp.task('default', ['watch', 'main'])
