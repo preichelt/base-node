@@ -8,13 +8,15 @@ import flow from 'gulp-flowtype'
 const paths = {
   allSrcJs: 'src/**/*.js',
   gulpFile: 'gulpfile.babel.js',
+  webpackFile: 'webpack.config.babel.js',
   allLibTests: 'lib/test/**/*.test.js'
 }
 
 gulp.task('lint', () => {
   gulp.src([
     paths.allSrcJs,
-    paths.gulpFile
+    paths.gulpFile,
+    paths.webpackFile
   ])
     .pipe(flow({ abort: true }))
     .pipe(eslint())
@@ -28,12 +30,22 @@ gulp.task('build', ['lint'], () => {
     .pipe(gulp.dest('lib'))
 })
 
-gulp.task('test', ['build'], () =>
+gulp.task('test', ['build'], () => {
   gulp.src(paths.allLibTests)
     .pipe(ava())
-)
+})
 
-gulp.task('main', ['test'], (callback) => {
+gulp.task('webpack', (callback) => {
+  const cmd = 'webpack --progress --color --hide-modules'
+
+  exec(cmd, (error, stdout, stderr) => {
+    console.log(stdout)
+    console.log(stderr)
+    return callback(error)
+  })
+})
+
+gulp.task('main', ['test', 'webpack'], (callback) => {
   const cmd = '$(npm bin)/pm2 start ecosystem.json --env development'
 
   exec(cmd, (error, stdout) => {
