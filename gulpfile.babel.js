@@ -34,7 +34,9 @@ gulp.task('test', ['build'], () =>
 )
 
 gulp.task('main', ['test'], (callback) => {
-  exec('node lib/', (error, stdout) => {
+  const cmd = '$(npm bin)/pm2 start ecosystem.json --env development'
+
+  exec(cmd, (error, stdout) => {
     console.log(stdout)
     return callback(error)
   })
