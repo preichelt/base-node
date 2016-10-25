@@ -25,7 +25,17 @@ gulp.task('lint', () => {
     .pipe(eslint.failAfterError())
 })
 
-gulp.task('build', ['lint'], () => {
+gulp.task('clean', ['lint'], (callback) => {
+  const cmd = 'rm -rf ./lib ./dist'
+
+  exec(cmd, (error, stdout, stderr) => {
+    console.log(stdout)
+    console.log(stderr)
+    return callback(error)
+  })
+})
+
+gulp.task('build', ['clean'], () => {
   gulp.src(paths.allSrcJs)
     .pipe(babel())
     .pipe(gulp.dest('lib'))
@@ -55,8 +65,17 @@ gulp.task('main', ['webpack'], (callback) => {
   })
 })
 
+gulp.task('static', (callback) => {
+  const cmd = '$(npm bin)/static -p 8081 --spa'
+
+  exec(cmd, (error, stdout) => {
+    console.log(stdout)
+    return callback(error)
+  })
+})
+
 gulp.task('watch', () => {
   gulp.watch([paths.allSrcJs, paths.allVueComponents], ['main'])
 })
 
-gulp.task('default', ['watch', 'main'])
+gulp.task('default', ['watch', 'main', 'static'])

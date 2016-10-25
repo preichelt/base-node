@@ -1,8 +1,8 @@
-<style src='./assets/css/app.sass' lang='sass?indentedSyntax'></style>
+<style src='./assets/stylesheets/app.sass' lang='sass?indentedSyntax'></style>
 
 <template lang='pug'>
   #app
-    img(src='./assets/img/logo.png')
+    img(src='./assets/images/logo.png')
     h1 {{ msg }}
     h2 Essential Links
     ul
