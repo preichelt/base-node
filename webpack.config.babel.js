@@ -4,17 +4,14 @@ export default {
   entry: './src/client/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: '/dist/',
     filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue',
-        options: {
-          // vue-loader options go here
-        }
+        loader: 'vue'
       },
       {
         test: /\.js$/,
